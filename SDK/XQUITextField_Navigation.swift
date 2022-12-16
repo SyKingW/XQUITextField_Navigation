@@ -40,6 +40,31 @@ extension UIView {
         
     }
     
+    /// 获取下面所有的 UITextField 和 UITextView
+    public func xq_getAllChildsTextField() -> [UIView] {
+        
+        var tfArr = [UIView]()
+        for v in self.subviews {
+            
+            if let tf = v as? UITextField {
+                tfArr.append(tf)
+                
+            }else if let tv = v as? UITextView {
+                tfArr.append(tv)
+                
+            }else {
+                
+                // 继续往下层获取
+                tfArr.append(contentsOf: v.xq_getAllChildsTextField())
+                
+            }
+            
+        }
+        
+        return tfArr
+        
+    }
+    
     /// 判断是否符合 NavigationField
     /// - Parameters:
     ///   - v: 当前这个
@@ -86,31 +111,6 @@ extension UIView {
         }
         
         return false
-    }
-    
-    /// 获取下面所有的 UITextField or UITextView
-    public func xq_getAllChildsTextField() -> [UIView] {
-        
-        var tfArr = [UIView]()
-        for v in self.subviews {
-            
-            if let tf = v as? UITextField {
-                tfArr.append(tf)
-                
-            }else if let tv = v as? UITextView {
-                tfArr.append(tv)
-                
-            }else {
-                
-                // 继续往下层获取
-                tfArr.append(contentsOf: v.xq_getAllChildsTextField())
-                
-            }
-            
-        }
-        
-        return tfArr
-        
     }
     
     

@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.author       = { "sinking" => "1034439685@qq.com" } #作者及联系方式
     
     s.osx.deployment_target  = '10.13'
-    s.ios.deployment_target  = "9.3" #平台及版本
+    s.ios.deployment_target  = "10.0" #平台及版本
     
     s.source       = { :git => "https://github.com/SyKingW/XQUITextField_Navigation", :tag => "#{s.version}"}   #工程地址及版本号
     
